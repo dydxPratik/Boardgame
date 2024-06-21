@@ -6,6 +6,15 @@ pipeline {
     }
 
     stages {   
+        stage('Echo Payload') {
+            steps {
+                script {
+                    echo "Webhook Payload:"
+                    echo env.PAYLOAD
+                }
+            }
+        }
+            
         stage('Compile') {
             steps {
                 sh 'mvn compile'
